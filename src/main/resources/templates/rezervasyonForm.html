@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Welcome to the most extraordinary hotel in Boston Massachusetts">
+  <meta name="keywords" content="hotel,boston hotel,new england hotel">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link rel="stylesheet" th:href="@{../css/style.css}">
+  <title>Hotel SLA | Rezervasyon</title>
+</head>
+<body>
+<header>
+  <nav id="navbar">
+    <div class="container">
+      <h1 class="logo"><a href="index">SLA</a></h1>
+      <ul>
+        <li><a href="index">Ana Sayfa</a></li>
+        <li><a href="about">Hakkında</a></li>
+        <li><a class="current" href="contact">İletişim</a></li>
+        <li><a href="rezervasyon/olustur" >Rezervasyon</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<section id="contact-form" class="py-3">
+  <div class="container">
+    <h1 class="l-heading"><span class="text-primary">Rezervasyon için</span> İletişim</h1>
+    <p>Rezervasyon için aşağıdaki bilgileri doldurun</p>
+    <form action="#" th:action="@{/rezervasyon/kaydet}" th:object="${reservation}" method="post">
+
+      <div class="form-group">
+        <label for="startDate">Başlangıç Tarihi:</label>
+        <input type="date" id="startDate" th:field="*{startDate}" required><br><br>
+      </div>
+
+      <div class="form-group">
+        <label for="endDate">Bitiş Tarihi:</label>
+        <input type="date" id="endDate" th:field="*{endDate}" required><br><br>
+      </div>
+
+      <div class="form-group">
+        <label for="roomId">Oda Seç:</label>
+        <select id="roomId" th:field="*{room.id}">
+          <option th:each="room : ${rooms}" th:value="${room.id}" th:text="${room.roomNumber}"></option>
+        </select><br><br>
+      </div>
+
+      <button type="submit" class="btn">Kaydet</button>
+
+    </form>
+  </div>
+</section>
+
+<section id="contact-info" class="bg-dark">
+  <div class="container">
+    <div class="box">
+      <i class="fas fa-hotel fa-3x"></i>
+      <h3>Konum</h3>
+      <p>Ataşehir/İstanbul</p>
+    </div>
+    <div class="box">
+      <i class="fas fa-phone fa-3x"></i>
+      <h3>Telefon Numarası</h3>
+      <p>(501) 219 3474</p>
+    </div>
+    <div class="box">
+      <i class="fas fa-envelope fa-3x"></i>
+      <h3>Email Adresimiz</h3>
+      <p>resepsiyon@hotelsla.com</p>
+    </div>
+  </div>
+</section>
+
+<footer id="main-footer">
+  <p>Hotel SLA &copy; 2019, Tüm Hakları Saklıdır</p>
+</footer>
+</body>
+</html>

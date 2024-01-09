@@ -1,0 +1,8 @@
+package com.ufkcnkmc.springboot.thymeleafdemo.repository;
+
+import com.ufkcnkmc.springboot.thymeleafdemo.entity.Customer;
+import org.springframework.data.repository.CrudRepository;
+
+public interface CustomerRepository extends CrudRepository<Customer, Long> {
+
+}
