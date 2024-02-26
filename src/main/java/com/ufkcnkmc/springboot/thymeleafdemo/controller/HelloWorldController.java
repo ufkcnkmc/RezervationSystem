@@ -42,15 +42,15 @@ public class HelloWorldController {
     @RequestMapping("/list-customers")
     public String listCustomers(Model model) {
         model.addAttribute("customers", customerRepository.findAll());
-        return "customerList"; // Bu isim Thymeleaf'in sayfayı bulmasını sağlar (customerList.html)
+        return "customerList"; 
     }
 
     @RequestMapping("/processFormVersionTwo")
     public String letsShoutDude(HttpServletRequest request, Model model) {
 
-        String theName = request.getParameter("studentName"); //--> öğrenci ismini html formdan okuyoruz
-        String email = request.getParameter("email"); //--> öğrenci ismini html formdan okuyoruz
-        String message = request.getParameter("message"); //--> öğrenci ismini html formdan okuyoruz
+        String theName = request.getParameter("studentName"); 
+        String email = request.getParameter("email"); 
+        String message = request.getParameter("message");
 
         theName = theName.toUpperCase(); //burada ismi büyütüyoruz
 
