@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/rezervasyon")
 public class ReservationController {
-    private final RoomRepository roomRepository; // RoomRepository'nin inject edildiğinden emin olun
-    private final ReservationRepository reservationRepository; // ReservationRepository'nin inject edildiğinden emin olun
+    private final RoomRepository roomRepository; 
+    private final ReservationRepository reservationRepository; 
 
 
     @Autowired
@@ -28,13 +28,13 @@ public class ReservationController {
     public String rezervasyonForm(Model model) {
         model.addAttribute("reservation", new Reservation());
         model.addAttribute("rooms", roomRepository.findAll());
-        return "rezervasyonForm"; // Thymeleaf sayfa ismi
+        return "rezervasyonForm"; // Thymeleafdeki sayfa ismi
     }
 
     @PostMapping("/kaydet")
     public String rezervasyonKaydet(@ModelAttribute("reservation") Reservation reservation) {
         reservationRepository.save(reservation);
-        return "redirect:/rezervasyon/olustur"; // Yeni bir rezervasyon oluşturma sayfasına yönlendir
+        return "redirect:/rezervasyon/olustur"; // kullanıcıyı bir rezervasyon oluşturma sayfasına yönlendiriyoruz
     }
 }
 
