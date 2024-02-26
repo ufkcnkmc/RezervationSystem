@@ -13,7 +13,7 @@ public class Reservation {
     private Long id;
     private LocalDate startDate;
     private LocalDate endDate;
-    // Diğer rezervasyon özellikleri
+   
 
     @ManyToOne
     @JoinColumn(name = "room_id",nullable = false)
